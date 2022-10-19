@@ -1,0 +1,3 @@
+function numPares(array) {
+        
+}
