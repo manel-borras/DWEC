@@ -15,4 +15,3 @@ function numPares(array) {
 //Definimos la array y llamamos a la función
 lista = [1, 14, 22, 15, 14, 18, 1324648];
 console.log(numPares(lista));
-

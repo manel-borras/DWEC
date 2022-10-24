@@ -1,4 +1,4 @@
-
+//@ts-check
 function drawTable(row, column) {
 row = 10;
 column = 4;
