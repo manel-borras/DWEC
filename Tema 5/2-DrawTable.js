@@ -1,11 +1,10 @@
+//Ask the user the parameters he wants to put
+    let row = prompt("How many rows do you want: ");
+    let column = prompt("How many columns do you want: ")
+    let color = prompt("Which colour do you want the border of the table to be: ");
+//This function defines the default values for rows and columns and writes the tables
 
-    let row = prompt("Dime las filas que quieres que tenga la tabla: ");
-    let column = prompt("Dime las columnas que quieres que tenga la tabla: ")
-    let color = prompt("Dime de que color quieres que sea el borde de la tabla");
-function drawTable(row = 10, column = 4, color = "black") {
-    console.log(row);
-    console.log(column);
-    console.log(color);
+    function drawTable(row = 10, column = 4, color = "black") {
 document.write("<table style='border: 3px solid "+color+"' width='100%'>");
     for (let i = 0; i < row; i++) {
         document.write("<tr>");

@@ -17,7 +17,7 @@ function isPrime(n){
         b = true;
       }
       n = n-1;
-    } while (n >= cont/2);
+    } while (n > cont/2);
   }
 
   if(b == true){
