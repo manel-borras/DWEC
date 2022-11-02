@@ -1,6 +1,7 @@
+//Initialize the map that contains the list of words
 var listWords = new Array();
 
-
+//Function that 
 function grupoPalabras(array) {
 
     let wordMap = new Map();
@@ -27,7 +28,6 @@ do {
     if (word !== "") {
         listWords.push(word);
     }
-
 } while (word !== "");
 
 let mapa = grupoPalabras(listWords);
