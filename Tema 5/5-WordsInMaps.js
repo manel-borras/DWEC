@@ -1,21 +1,37 @@
 var listWords = new Array();
-var wordMap = new Map();
+
+
+function grupoPalabras(array) {
+
+    let wordMap = new Map();
+
+    for (let i in array) {
+
+        if (wordMap.get(array[i])) {
+            let cont = 1 + wordMap.get(array[i]);
+            wordMap.set(array[i], cont);
+
+        } else {
+            wordMap.set(array[i], 1);
+        }
+    }
+
+    return wordMap;
+
+}
+
+let word;
+
 do {
-    word = prompt("Tell me a word or leave it empty if you want to stop the program: ");    
-    listWords.push(word);    
-    
+    word = prompt("Tell me a word or leave it empty if you want to stop the program: ");
+    if (word !== "") {
+        listWords.push(word);
+    }
+
 } while (word !== "");
 
-listWords.pop();
+let mapa = grupoPalabras(listWords);
 
-for ( i in listWords) {
-    i = parseInt(i);
-    wordMap.set(i, listWords[i]);
-}
-
-for (let key in object) {
-    if (Object.hasOwnProperty.call(object, key)) {
-        const element = object[key];
-            
-    }
-}
+mapa.forEach(function (valor, clave) {
+    console.log(`Clave: ${clave}, Valor: ${valor}`)
+})
