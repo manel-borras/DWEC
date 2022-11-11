@@ -20,10 +20,34 @@ function Punto(coordX, coordY){
       return this.x==n.x && this.y==n.y;
     }
 
+    this.addition=(p)=>new Punto(this.x+p.x , this.y+p.y);
+
+    this.getDistance = that => {
+      let a = Math.abs(this.x - that.x);
+      let b = Math.abs(this.y - that.y);
+      a*=a;
+      b*=b;
+      let ans = Math.sqrt(a+b);
+      return ans;
+    }
+
   this.mostrarCoordenadas=()=>`(${this.x},${this.y})`;
 }
 
 let a = new Punto(3,4);
+console.log(a.__proto__);
+Punto.prototype.copy=()=>{return new Punto(this.x, this.y)};
+console.log(a.__proto__);
+Punto.prototype.z=60;
+console.log(a.__proto__);
+let b = new Punto(5,7);
+console.log(b.__proto__);
+a.z=45;
+Punto.prototype.z=100;
+console.log(a.z);
+console.log(b.z);
+
+/**
 let c = a.copy();
 console.log(a.mostrarCoordenadas());
 a.change(5,8);
@@ -32,6 +56,11 @@ let b = a.copy();
 console.log(b.mostrarCoordenadas());
 console.log(c.mostrarCoordenadas());
 
-
-
 console.log(a.equals(b));
+
+let d = a.addition(b);
+console.log(d.mostrarCoordenadas());
+
+let e = a.getDistance(d);
+console.log(e);
+*/
