@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3</title>
+</head>
+<body>
+  <script>
+
+    function granizo(n){
+      //creo una funcion granizo a la que se le pasa un numero y ejecuta el siguiente bucle
+      do {
+        if (n%2 === 0) {
+        n = n/2;
+        console.log("El numero es par, lo dividimos entre 2: "+n);
+        //si el numero es par lo dividirá entre 2
+      } else {
+        n = n*3+1;
+        console.log("El numero es impar, lo multiplicamos por 3 y le sumamos 1"+n);
+        //Si el numero es impar lo multiplicará por 3 y le sumará 1
+      }  
+      //Lo hará mientras el numero sea distinto a 1
+      } while (n != 1);
+      
+
+    }
+
+    granizo(14);
+//mostramos la función
+  </script>
+</body>
+</html>

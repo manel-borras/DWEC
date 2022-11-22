@@ -46,21 +46,3 @@ a.z=45;
 Punto.prototype.z=100;
 console.log(a.z);
 console.log(b.z);
-
-/**
-let c = a.copy();
-console.log(a.mostrarCoordenadas());
-a.change(5,8);
-console.log(a.mostrarCoordenadas());
-let b = a.copy();
-console.log(b.mostrarCoordenadas());
-console.log(c.mostrarCoordenadas());
-
-console.log(a.equals(b));
-
-let d = a.addition(b);
-console.log(d.mostrarCoordenadas());
-
-let e = a.getDistance(d);
-console.log(e);
-*/

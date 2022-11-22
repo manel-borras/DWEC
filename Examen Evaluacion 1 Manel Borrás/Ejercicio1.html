@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Simon says</title> 
+</head> 
+<body> 
+<script>
+
+const colors = ['red', 'blue', 'yellow', 'green']; 
+const sequence = []; 
+let endGame = true; 
+ 
+while(endGame) { 
+  //Mientras que endGame sea true debe ejecutarse el código, si le ponemos el ! al principio le indicamos lo contrario
+  const random = Math.round(Math.random() * (colors.length));  
+  const color = colors[random];  
+  //  Crea una variable llamada random a la que se le asigna un valor entre las opciones que hay en el array, luego selecciona un color del array indicandole la posición que ha salido del math.random
+  sequence.push(color);
+  //Debemos cambiar el pop al push para que se le añada un nuevo color a la lista, sino siempre se quedaría a 0
+  console.log("Round "+sequence.length+" Current sequence is number : "+sequence);  
+  for(let i = 1; i < sequence.length; i++) {  
+      if (endGame) { 
+        const play = prompt(`Enter a color (${colors}):`); 
+        if (play !== sequence[i]) { 
+          endGame = false; 
+        } 
+      } 
+  } 
+} 
+ 
+alert(`You are wrong! You've survived ${sequence.length - 1} rounds`); 
+</script> 
+</body> 
+</html> 

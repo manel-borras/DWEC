@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 4</title>
+</head>
+<body>
+  <script>
+    var numeros = [1,2,3];
+    var nuevaLista = [];
+    //creamos una lista base y otra lista a la que se le pasaran los numeros
+    function map (numeros, callback){
+      for (const key in numeros) {
+        numero = parseInt(numeros[key]);
+        nuevaLista.push(numero*callback);
+      //pasamos a integer los elementos del array y los añadimos a la nueva lista a la vez que los multiplicamos por el callback
+      }
+    }
+      map(numeros, 2, x => x*2);
+      //llamamos a la función map
+      console.log(nuevaLista);
+      //mostramos la lista que se nos ha quedado después de ejecutar la función
+  </script>
+</body>
+</html>

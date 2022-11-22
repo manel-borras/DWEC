@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 5</title>
+</head>
+
+<body>
+  <script>
+    var puntos = 50;
+    //instanciamos la variable puntos para definir los puntos iniciales del usuario
+    do {
+      let apuesta = parseInt(prompt("Dime cuanto dinero quieres apostar"));
+      let opcion = prompt("Elige entre piedra, papel o tijera: ");
+      let lista = ["piedra", "papel", "tijera"];
+      let rand = parseInt(Math.random() * 3);
+      //recogemos los datos que introduce el usuario y generamos un numero aleatorio con el tamaño de la lista
+      if (opcion != "piedra" && opcion != "papel" && opcion != "tijera") {
+        console.log("Elige una opción correcta");
+        //comprobamos que la opción que ha introducido el usuario sea correcta
+      } else {
+        if (lista[rand] === "papel" && opcion === "piedra") {
+          console.log("Has perdido");
+          puntos -= apuesta;
+        } else if (lista[rand] === "papel" && opcion === "tijera") {
+          console.log("Has ganado");
+          puntos += apuesta * 2;
+        } else if (lista[rand] === "piedra" && opcion === "papel") {
+          console.log("Has ganado");
+          puntos += apuesta * 2;
+        } else if (lista[rand] === "piedra" && opcion === "tijera") {
+          console.log("Has perdido");
+          puntos -= apuesta;
+        } else if (lista[rand] === "tijera" && opcion === "piedra") {
+          console.log("Has ganado");
+          puntos += apuesta * 2;
+        } else if (lista[rand] === "tijera" && opcion === "papel") {
+          console.log("Has perdido");
+          puntos -= apuesta;
+        }
+        //usamos if para comparar los resultado entre la maquina y la opción que ha introducido el usuario
+        
+      }
+      console.log("La maquina ha elegido la opción: " + lista[rand]);
+        //mostramos la opción que ha escogido la máquina
+      console.log("Puntos: " + puntos);
+        //mostramos los puntos que tiene el usuario
+    } while (puntos > 0 && puntos <= 200);
+//ejecutamos el while mientras los puntos sean mayores a 0 y menores a 200 y mostramos que se ha acabado la partida
+    console.log("Se ha acabado la partida");
+
+  </script>
+</body>
+
+</html>

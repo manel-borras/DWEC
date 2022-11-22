@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+ <html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repaso examen</title>
+ </head>
+ <body>
+  <h1>Recoger datos a partir de un formulario</h1>
+  <form id="Formulario">
+    <label for="name">Enter your name: </label>
+    <input type="text" name="name" id="name">
+    <label for="age">Enter your age: </label>
+    <input type="number" name="age" id="age">
+    <input type="button" value="Enviar" onclick="obtenerDatos()">
+  </form>
+  <script>
+    function obtenerDatos() {
+      name = document.getElementById('name').value;
+      age = document.getElementById('age').value;
+      age = age
+      console.log(name);
+      console.log(age);
+    }
+  </script>
+
+  <table border>
+    <tr><th>
+      Nombre
+    </th>
+  <th>Edad</th></tr>
+  <tr>
+    <td><script>document.write(name)</script></td>
+    <td><script>document.write(age.value)</script></td>
+  </tr>
+  </table>
+
+  <h1>Encriptación al estilo Cesar <img src="https://www.recetasderechupete.com/wp-content/uploads/2020/10/Ensalada-Cesar-final_.jpg" alt="cesar" width="50" height="auto"></h1>
+
+  <form id="Llave">
+    <label for="text">Introduce la palabra que quieres encriptar: </label>
+    <input type="text" name="word" id="word">
+    <label for="key">Introduce la llave: </label>
+    <input type="number" name="key" id="key">
+    <input type="button" value="Submit" onclick=encriptar()>
+  </form>
+
+  <script>
+
+    function encriptar(word, key) {
+      var word = document.getElementById('word').value
+      var key = parseInt(document.getElementById('key').value);
+      let lista = [];
+      for (let index = 0; index < word.length; index++) {
+        let letra = word.charAt(index);
+        let num = parseInt(letra.charCodeAt(0));
+        let letraEncr = String.fromCharCode(num + key);
+        lista.push(letraEncr);
+      }
+      console.log(lista.join(""));
+    }
+
+  </script>
+
+ </body>
+ </html>
