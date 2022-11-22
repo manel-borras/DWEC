@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validate NIF</title>
+</head>
+<body>
+  <script>
+    let nif = prompt("Please enter your NIF");
+    let expNIF=/^[XYZ0-9][0-9]{7}[A-Z]$/;
+
+    class validateNIF{
+      nif;
+
+      constructor(nif){
+        this.nif = nif;
+      }
+
+      validacion(){
+        if(!expNIF.test(this.nif)){
+          return "El formato del nif no es correcto";
+        }
+
+        letra = nif[8];
+
+
+      }
+
+    }
+
+
+    nif1 = new validateNIF(nif);
+    
+    console.log(nif1.validacion());
+  </script>
+</body>
+</html>
