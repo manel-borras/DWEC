@@ -10,7 +10,7 @@
   <script>
     let nif = prompt("Please enter your NIF");
     let expNIF=/^[XYZ0-9][0-9]{7}[A-Z]$/;
-
+    var cadena="TRWAGMYFPDXBNJZSQVHLCKET";
     class validateNIF{
       nif;
 
@@ -20,14 +20,21 @@
 
       validacion(){
         if(!expNIF.test(this.nif)){
+          document.body.style.backgroundColor = "red"; 
           return "El formato del nif no es correcto";
         }
 
-        letra = nif[8];
+        let letra = nif[8];
+        let numero = parseInt(nif.split("",8).join(""));
+        
+        let resto = numero % 23;
 
-
+        if (letra === cadena.substring(resto, resto+1)) {
+          document.body.style.backgroundColor = "green"; 
+          return `Enhorabuena, tu DNI es correcto`;
+        }
+        console.log(cadena.substring(resto));
       }
-
     }
 
 
