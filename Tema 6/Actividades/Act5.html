@@ -10,16 +10,22 @@
   <script>
     
     let date = prompt("Enter a date using the day/month/year format");
+    let date2 = prompt("Enter a date using the day/month/year format");
+    let singleValues1 = date.split("/");
+    let day1 = singleValues1[0];
+    let month1 = singleValues1[1];
+    let year1 = singleValues1[2];
+    let singleValues2 = date2.split("/");
+    let day2 = singleValues2[0];
+    let month2 = singleValues2[1];
+    let year2 = singleValues2[2];
+    fecha1 = new Date(year1, month1 - 1, day1);
+    fecha2 = new Date(year2, month2 - 1, day2);
     
-    let singleValues = date.split("/");
-    let day = singleValues[0];
-    let month = singleValues[1];
-    let year = singleValues[2];
-
-    console.log(`El dia es ${day}, el mes es ${month}, el año es ${year}`);
-
-    fecha = new Date(year, month - 1, day);
-    console.log(fecha);
+    if (fecha1.getTime() > fecha2.getTime()){
+      let resta = fecha2.getTime() - fecha1.getTime()
+      console.log(Math.round(resta/ (1000*60*60*24)))
+    }
 
   </script>
 </body>

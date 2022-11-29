@@ -21,11 +21,25 @@
     <script>
       let palabra = prompt("Dime una palabra a buscar");
       
+      let elemento = document.body[0];
+      function marcaPalabra(palabra, elemento){
+        let texto = elemento.innerHTML.replace(elemento);
+        let pos = texto.indexOf(palabra);
+      };
+
+
       function buscaTexto(elemento, palabra) {
         if (elemento.children) {
-
+          for(let hijo of elemento.children){
+            if (hijo.length) {
+              buscaTexto(hijo, palabra)
+            }
+          }
+        } else {
+          marcaPalabra(palabra, elemento)
         }
       }
+
 
 
     </script>

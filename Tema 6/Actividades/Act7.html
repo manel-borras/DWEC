@@ -26,12 +26,20 @@
 
         let letra = nif[8];
         let numero = parseInt(nif.split("",8).join(""));
+
+        let primeraLetra = parseInt(nif.split("",1).join(""));
+
         
+
+        if (primeraLetra === "X") {
+          
+        }
+
         let resto = numero % 23;
 
         if (letra === cadena.substring(resto, resto+1)) {
           document.body.style.backgroundColor = "green"; 
-          return `Enhorabuena, tu DNI es correcto`;
+          alert `Enhorabuena, tu DNI es correcto`;
         }
         console.log(cadena.substring(resto));
       }
