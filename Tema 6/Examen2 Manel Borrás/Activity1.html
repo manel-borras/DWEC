@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 1</title>
+</head>
+
+<body>
+  <script>
+    //Genera un numero aleatorio de 4 digitos y comprueba que esté entre 1000 y 9999, se podría hacer con regexp
+    let numero = parseInt(Math.random()*9999);
+    if (numero > 9999) {
+      numero = parseInt(Math.random()*9999);
+    } else if (numero < 1000){
+      numero = parseInt(Math.random()*9999);
+    }
+    //Pasa el numero que hemos generado a string para poder aplicarle el split más adelante
+    numero = numero.toString();
+    //Instanciamos las variables
+    let solucion = 0;
+    let aciertos = 0;
+    let contador = 0;
+    let coincidencias = 0;
+    //Muestra el numero por la consola para hacer más facil la corrección
+    console.log(numero);
+    //Creamos la función
+    function adivinar(solucion) {
+      //Convertimos el numero a un array
+      numero.split("");
+      //Creamos un bucle do para permitir que el jugador siga introduciendo números hasta que acierte o le de a cancelar
+      do {
+        solucion = prompt("Dime un número: ");
+        //Comprobamos si el jugador escoge la opción de cancelar
+        if (solucion === null){
+          alert("Has salido del programa")
+        }
+        //Separamos el numero que nos da el jugador en un array
+        solucion.split("");
+        //Si el jugador falla reseteamos el numero de aciertos y coincidencias
+        aciertos = 0;
+        coincidencias = 0;
+        //Comprobamos la cantidad de numeros que están en la misma posición que el número
+        for (let i = 0; i < solucion.length; i++) {
+          if (numero[i] == solucion[i]) {
+            aciertos += 1;
+          }
+        }
+        //Comprobamos la cantidad de numeros que se encuentran dentro del número
+        for (let i = 0; i < solucion.length; i++) {
+          for (let f = 0; f < numero.length; f++) {
+            if (numero[i] == solucion[f]) {
+              coincidencias += 1;
+            }
+          }
+        }
+
+        //Sumamos 1 a la cantidad de intentos que ha realizado el jugador
+        contador += 1;
+        //Escribimos el número de aciertos y coincidencias.
+        console.log(`${solucion}: Tu numero tiene ${aciertos} aciertos y ${coincidencias} coincidencias.`);
+
+      } while (aciertos != 4);
+
+      //Cuando se acierta el numero salta el mensaje de notificación y el programa se termina
+      console.log(`Felicitaciones has adivinado el numero en ${contador} intentos`);
+
+    }
+    
+    //Ejecutamos la función
+    adivinar(solucion);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 2 Manel Borrás</title>
+</head>
+<body>
+  <script>
+
+    let baraja = {};
+
+    let carta = {
+      palo : ["Corazones", "Tréboles", "Diamantes", "Picas"],
+      valor: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
+      crearBaraja:function(palo, valor){
+        palo = this.palo;
+        valor = this.valor;
+        for (let i = 0; i < palo.length; i++) {
+          for (let f = 0; f < valor.length; f++) {
+            //Mostramos por consola la baraja ordenada
+            console.log(`${valor[f]} de ${palo[i]}`);
+            //En la clase baraja podriamos definir un array y pushear cada carta en una posicion y luego recorrerlo con un for
+          }
+        }
+      }
+
+    };
+    
+    carta.crearBaraja();
+
+    let jugador = {
+      nombre: "Manel",
+      edad: 19,
+      quienSoy:function(nombre, edad){
+        nombre = this.nombre;
+        edad = this.edad;
+
+        if(edad < 18){
+          return("No se ha creado el jugador");
+        }
+
+        let comprobarCorreo = new RegExp("[a-z]@[a-z](.com|.es)!");
+        correo = "manel@correo.com";
+        if(comprobarCorreo.test(correo)){
+          console.log(`Tu nombre es: ${nombre}, tu edad es de: ${edad} y tu correo es ${correo}`)
+        }else{
+          console.log("Tu nombre no es correcto");
+        }
+      }
+
+    }
+
+    jugador.quienSoy();
+
+
+  </script>
+</body>
+</html>
