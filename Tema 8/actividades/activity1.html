@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banner thtat follows the mouse</title>
+</head>
+<style>
+  div{
+    background-color: aquamarine;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+  }
+</style>
+<body>
+  <div>
+  </div>
+</body>
+
+  <script>
+    document.addEventListener('mousemove', function(ev){
+      let pageX = ev.pageX;
+      let pageY = ev.pageY;
+      console.log(`${pageX}, ${pageY}`);
+
+      let cuadrado = document.querySelector("div");
+
+      cuadrado.style.top= pageY-75 + "px";
+      cuadrado.style.left = pageX-75 + "px";
+
+    })
+  </script>
+
+</html>

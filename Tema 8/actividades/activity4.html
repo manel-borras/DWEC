@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed control</title>
+</head>
+<body>
+  <p>Speed 0</p>
+</body>
+<script>
+  let p = document.querySelector("p");
+
+  let psep = p.innerHTML.split(" ");
+
+  document.addEventListener("keydown", function(key){
+
+    let speed = parseInt(psep[1]);
+
+    if (key.keyCode === 38 && speed <120) {
+      //up arrow
+      speed += 1;
+      psep[1] = speed;
+      pfin = psep[0] +" "+psep[1];
+      document.body.replaceChildren(...pfin);
+    } if (key.keyCode === 40 && speed >0){
+      //down arrow
+      speed -= 1;
+      psep[1] = speed;
+      pfin = psep[0] +" "+psep[1];
+      document.body.replaceChildren(...pfin);
+    }
+
+  });
+
+
+</script>
+</html>

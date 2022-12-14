@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+*{
+  margin: 0;padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 2;
+  grid-template-areas: "hd hd"
+  "fg mn";
+  margin: 0 auto;
+}
+
+header{
+  grid-area: hd;
+  background-color: sandybrown;
+  text-align: center;
+}
+
+figure{
+  grid-area: fg;
+}
+
+main{
+  grid-area: mn;
+}

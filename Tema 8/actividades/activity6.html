@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download images</title>
+</head>
+<style>
+  div{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+  }
+  img{
+    border: 1px solid black;
+  }
+</style>
+<body>
+  <h1>loading...</h1>
+  <div>
+    <img src="https://loremflickr.com/200/200/cota">
+    <img src="https://loremflickr.com/200/200/senna">
+    <img src="https://loremflickr.com/200/200/schumacher">
+    <img src="https://loremflickr.com/200/200/sainz">
+    <img src="https://loremflickr.com/200/200/monacof1">
+    <img src="https://loremflickr.com/200/200/francorchamps">
+    <img src="https://loremflickr.com/320/240/barcelonacircuit">
+    <img src="https://loremflickr.com/320/240/portimaocircuit">
+    <img src="https://loremflickr.com/320/240/imolacircuit">
+    <img src="https://loremflickr.com/320/240/cheste">
+  </div>
+</body>
+  <script>
+    let carga = document.querySelector("h1");
+
+    window.addEventListener("load", function(ld) {
+      carga.style.display="none"
+    });
+  </script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rollup div</title>
+</head>
+<style>
+  div {
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  }
+</style>
+
+<body>
+  <div>
+  </div>
+</body>
+<script>
+  let div = document.querySelector("div");
+  
+  div.addEventListener("mouseenter", function(key){
+    div.style.backgroundColor="green";
+  });
+
+  div.addEventListener("mouseleave", function(key){
+    div.style.backgroundColor="white";
+  })
+
+  div.addEventListener("contextmenu", function(key){
+    key.preventDefault();
+  });
+
+  div.addEventListener("mousedown", function(key){
+    if (key.button === 0) {
+      div.style.backgroundColor="red";
+    } if(key.button === 2){
+      div.style.backgroundColor="blue";
+    }
+  });
+
+  div.addEventListener("mouseup", function(key){
+    div.style.backgroundColor="green";
+  });
+
+</script>
+
+</html>

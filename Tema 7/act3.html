@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de visitas</title>
+</head>
+<body>
+  <script>
+    if(!document.cookie){
+      document.cookie=`contador=1`;
+      console.log("Has entrado al !document.cookie");
+    }else{
+      var numeroVisitas = parseInt(document.cookie.split("=")[1]);
+      numeroVisitas += 1;
+      document.cookie=`contador=${numeroVisitas}`;
+      console.log(numeroVisitas);
+    }
+
+  document.write(`Las veces que has visitado esta página han sido: ${numeroVisitas}`);
+  </script>
+</body>
+</html>
