@@ -7,7 +7,7 @@
 
 body{
   display: grid;
-  grid-template-columns: 2;
+  grid-template-columns: 30% 70%;
   grid-template-rows: 2;
   grid-template-areas: "hd hd"
   "fg mn";
@@ -18,12 +18,18 @@ header{
   grid-area: hd;
   background-color: sandybrown;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-figure{
+figure img{
   grid-area: fg;
+  width: 100%;
+  height: auto;
+  margin: 2rem;
 }
 
 main{
   grid-area: mn;
+  display: flex;
+  justify-content: center;
 }
