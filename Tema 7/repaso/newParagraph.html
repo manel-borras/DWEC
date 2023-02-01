@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New paragraph</title>
+</head>
+<body>
+  <ol id="lista">
+    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia consequatur pariatur eaque quam quo doloremque repellendus itaque soluta, ipsa corrupti impedit tenetur ducimus saepe dolorem suscipit aut laborum adipisci aspernatur.</li>
+    <li>Enim, esse ipsum animi molestiae quam repudiandae doloremque blanditiis et assumenda similique ullam repellat reprehenderit velit amet pariatur totam. Dicta accusamus dolore repudiandae ea tempore, sint aliquid nemo nostrum corporis.</li>
+    <li>Fuga sit aliquid, earum recusandae voluptatem doloremque sunt blanditiis in, delectus temporibus eius explicabo sed nulla non ipsam vitae consequuntur saepe obcaecati molestias nesciunt deserunt. Dolorum voluptatem culpa nihil quos!</li>
+    <li>Distinctio mollitia laboriosam tenetur blanditiis vitae nihil quos possimus culpa sit illum dignissimos impedit, at earum quaerat ratione repellendus quae accusantium sint magnam voluptatem tempora. Esse nihil excepturi distinctio corporis.</li>
+    <li>Unde pariatur non, a nostrum asperiores est aliquam neque provident ut vitae odit temporibus corporis fuga repudiandae, ullam quod voluptate debitis, ipsum quaerat. A veniam, nemo vel autem quam quas?</li>
+    <li>Obcaecati sequi eveniet cupiditate? Consequatur consectetur, quidem vero consequuntur odit sed nihil a dolorum numquam expedita totam dolore ex id dignissimos deserunt necessitatibus dicta et ea adipisci cum doloremque veritatis!</li>
+    <li>Accusamus suscipit sit, debitis, necessitatibus deleniti assumenda placeat numquam veniam maiores nihil eaque eveniet rem delectus facilis temporibus tenetur itaque, laboriosam quas nemo nisi. Corporis quaerat minima molestiae? Obcaecati, officiis.</li>
+    <li>Cupiditate iste accusantium alias molestias voluptate dolorem dignissimos libero sequi sed voluptatem! Ex totam quaerat voluptatem quisquam ipsam molestiae laborum similique et, maiores, nostrum saepe deserunt at rerum, quos consectetur.</li>
+    <li>Ad exercitationem ex inventore sapiente, laborum officia. Accusamus, similique, autem nulla esse earum facilis enim quisquam atque officia inventore porro voluptatibus? Sequi quos illum deleniti distinctio quibusdam debitis minima quisquam.</li>
+  </ol>
+
+  <script>
+    let newPar = prompt('Done quieres introducir el párrafo');
+
+    if (newPar === isNaN) {
+      alert('Introduce un número valido');
+    } else {
+      let ol = document.getElementById('lista');
+      let li = document.querySelectorAll('ol');
+      let insertar = document.createElement("li");
+      insertar.innerHTML = "<strong>Este es el parrafo nuevo</strong>"
+
+      ol.insertBefore(insertar);
+      
+    }
+
+  </script>
+</body>
+</html>

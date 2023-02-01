@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo Canvas API</title>
+</head>
+<body>
+  <canvas id="lienzo" width="500" height="300"></canvas>
+
+  <script>
+    const lienzo = document.getElementById("lienzo");
+    const ctx = lienzo.getContext("2d");
+
+// ctx.beginPath;
+//     ctx.fillStyle = "black";
+//     ctx.lineWidth = "2";
+//     ctx.strokeStyle = "black"
+//     ctx.fillRect(100,100,50,50);
+//     ctx.fillRect(200,100,50,50);
+//     ctx.fillStyle = "pink";
+//     ctx.fillRect(150,0,50,150);
+// ctx.closePath;
+
+//****************TRIANGULO****************//
+
+// ctx.beginPath;
+//     ctx.fillStyle = "blue";
+//     ctx.lineWidth = "2";
+//     ctx.strokeStye = "black"
+//     ctx.moveTo(50, 10);
+//     ctx.lineTo(10, 50);
+//     ctx.lineTo(50,50);
+//     ctx.lineTo(50,10);
+//     ctx.stroke();
+// ctx.closePath;    
+
+//***********ROMBO***********//
+//ctx.beginPath;
+//   ctx.fillStyle = "blue";
+//   ctx.lineWidth = "2";
+//   ctx.strokeStye = "black"
+//   ctx.moveTo(100,100);
+//   ctx.lineTo(125, 125);
+//   ctx.lineTo(100,150);
+//   ctx.lineTo(75, 125);
+//   ctx.lineTo(100, 100);
+//   ctx.stroke();
+//ctx.closePath;
+
+//*********SEMICIRCULO***********//
+ctx.beginPath;
+  ctx.fillStyle = "blue";
+  ctx.lineWidth = "2";
+  ctx.strokeStye = "black"
+  ctx.moveTo(50,10);
+  ctx.lineTo(100,10);
+  ctx.lineTo(100,110);
+  ctx.lineTo(50,110);
+  ctx.stroke();
+ctx.closePath;
+
+ctx.beginPath;
+ctx.fillStyle = "blue";
+  ctx.lineWidth = "2";
+  ctx.strokeStye = "black";
+  ctx.moveTo(50, 10);
+  ctx.lineTo(30, 20);
+  ctx.stroke();
+ctx.closePath;
+
+
+
+</script>
+</body>
+</html>

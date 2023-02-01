@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer 2</title>
+</head>
+<body>
+  <p></p>
+  <p></p>
+  <script type="module">
+    //Import the timer and count function
+    import{timer, count} from "./timer.js";
+
+    let p1=document.querySelector("p:first-of-type");
+    let p2=document.querySelector("p:last-of-type");
+    //Set the counters
+    count(2,p1);
+    count(20,p2,100,()=>{
+      //When the for loop ends in the function it writes this text using the callback function
+      p2.textContent="End";
+    });
+  </script>
+</body>
+</html>

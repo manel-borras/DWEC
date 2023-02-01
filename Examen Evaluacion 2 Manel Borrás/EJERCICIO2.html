@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>EJERCICIO 2</title>
+</head>
+
+<body>
+	<input type="button" value="Genera !!" id="botonGenera">
+	<div id="primero"></div>
+	<div id="segundo"></div>
+	<div class="clear"></div>
+	<input id="compara" type="button" value="<< Compara >>"/>
+	<div id="resultado"></div>
+</body>
+	<style type="text/css">
+			#primero, #segundo, #resultado {
+		width: 150px; height: 150px; border: thin solid silver; 
+		background: #F5F5F5; float: left; margin:20px; 
+		font-size: 6em; color: #333; text-align: center; 
+		padding: 5px; font-family:Arial, Helvetica, sans-serif;}
+			#primero p, #segundo p, #resultado p {margin:.2em 0;}
+			#resultado {margin-left:1.3em; border-color: black;}
+			.clear {clear:both;}
+	#compara, #genera {font-size:1.2em; margin-left:8em;}
+	</style>
+
+<script>
+	function genera() {
+		// Crea 2 numeros random del 1 al 10
+		var numero1 = parseInt(Math.random()*10);
+		var numero2 = parseInt(Math.random()*10);
+		// Crea 2 variable con el primer parrafo de los 2 divs
+		var parrafoAnterior1 = primero.firstChild;
+		var parrafoAnterior2 = segundo.firstChild;
+		// La variable parrafo1 guarda un parrafo y la variable texto1 crea un texto con valor numero1 y lo insertan en el parrafo1
+		var parrafo1 = document.createElement("p");
+		var texto1 = document.createTextNode(numero1);
+		parrafo1.appendChild(texto1);
+		//Si el parrafoanterior1 es nulo inserta el parrafo1 y reemplaza el parrafoanterior1, sino inserta el parrafo1
+		if(parrafoAnterior1 != null) {
+			primero.replaceChild(parrafo1, parrafoAnterior1);
+		}
+		else {
+			primero.appendChild(parrafo1);
+		}
+		// Crea un parrafo y lo guarda en parrafo2 crea un texto numero2 y lo guarda en texto2. Añade texto2 a parrafo2
+		var parrafo2 = document.createElement("p");
+		var texto2 = document.createTextNode(numero2);
+		parrafo2.appendChild(texto2);
+		// Si el parrafoanterior2 es nulo inserta el parrafo2 y reemplaza el parrafoanterior2, sino inserta el parrafo2:
+		if(parrafoAnterior2 != null) {
+			segundo.replaceChild(parrafo2, parrafoAnterior2);
+		}
+		else {
+			segundo.appendChild(parrafo2);
+		}
+	}
+	
+	function compara() {
+		// Guarda en parrafo1 y parrafo2 los elementos p
+		var parrafo1 = primero.getElementsByTagName("p");
+		var parrafo2 = segundo.getElementsByTagName("p");
+		//	Guarda en numero1 y numero2 los valores que contiene el parrafo1 y parrafo2
+		var numero1 = parseInt(parrafo1);
+		var numero2 = parseInt(parrafo2);
+		// Detecta cual de los 2 numeros es mayor, si es true devuelve parrafo1, si es false devuelve parrafo2
+		var parrafoMayor = (numero1 > numero2)? parrafo1 : parrafo2;
+		// Guarda en la variable resultado lo que contiene el div con id resultado y guarda el primer parrafo de resultado en la variable parrafoAnterior
+		var resultado = document.getElementById("resultado");	
+		var parrafoAnterior = resultado.firstChild;
+		// Si el parrafoanterior es nulo inserta el parrafoMayor lo reemplaza, sino inserta el parrafoMayor:
+		if(parrafoAnterior != null) {
+			resultado.replaceChild(parrafoMayor, parrafoAnterior);
+		}
+		else {
+			resultado.appendChild(parrafoMayor);
+		}
+	}
+	
+	// Guarda en las variables genera y compara los botones que pertenecen a cada acción
+	let botonGenera = document.getElementById('botonGenera');
+	let botonComparar = document.getElementById('compara');
+	
+	console.log(typeof(botonGenera));
+
+	// TODO Añade código para que al pulsar en el botón "genera" se invoque la función correspondiente. Añade comentario correspondiente
+	
+    botonGenera.addEventListener('click', function(){
+      genera();
+    });
+
+	// TODO Añade código para que al pulsar en el botón "compara" se invoque la función correspondiente. Añade comentario correspondiente
+	
+		botonComparar.addEventListener('click', function(){
+			compara();
+		});
+	
+	</script>
+	
+</html>

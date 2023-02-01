@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Randomize users</title>
+</head>
+<body>
+  <img src="" alt="imagen de persona aleatoria" id="img">
+  <p id="name"></p>
+  <p id="mail"></p>
+  <p id="dir"></p>
+  <p id="estado"></p>
+
+  <script>
+    var capaIMG = document.getElementById("img");
+    var capaName = document.getElementById("name");
+    var capaMail = document.getElementById("mail");
+    var capaDir = document.getElementById("dir");
+    var capaEstado = document.getElementById("estado");
+
+    fetch("https://randomuser.me/api/?results=10")
+    .then(response => {
+      if(response.ok){
+        return response.json();
+      }
+      else {
+          throw new Error("Los datos no llegaron bien");
+        }
+    })
+    .then(responseUser => {
+      capaIMG.src = responseUser.results[0].picture.medium;
+      capaName.textContent = responseUser.results[0].name.first +" "+ responseUser.results[0].name.last;
+      capaMail.textContent = responseUser.results[0].email;
+      capaDir.textContent = responseUser.results[0].location.city;
+      capaEstado.textContent = responseUser.results[0].location.state;
+      
+    })
+    .catch(error => {
+        document.write(error);
+    });
+
+  </script>
+</body>
+</html>

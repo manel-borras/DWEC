@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 1</title>
+</head>
+<body>
+  <h1>Bienvenido a mi juego: </h1>
+  <h2>Tienes que adivinar un numero de 4 cifras distintas</h2>
+  <form action="">
+    <label for="num">Que numero propones: </label>
+    <input type="text" name="num" id="num">
+    <input type="button" id="btn" value="Enviar">
+  </form>
+  <p id="texto"></p>
+<script>
+
+  let btn = document.getElementById("btn");
+  let texto = document.getElementById("texto");
+
+  function aleatorio() {
+    let lista = [1,2,3,4,5,6,7,8,9];
+      var ale = lista.sort(function(){
+        return Math.random() -0.5;
+      });
+    ale = ale.splice(0,4);
+    return numAleatorio = parseInt(ale.join(""));
+  };
+
+  let numAlatorio = aleatorio();
+  console.log(numAleatorio);
+  btn.addEventListener("click", function (send){
+    let numString = document.getElementById("num");
+    let num = parseInt(numString.value);
+    if (num === numAleatorio) {
+      texto.innerHTML="HAS GANADO";
+    } else if (num !== numAleatorio){
+      numArray = num.toString().split("");
+      numAleatorioArray = numAleatorio.toString().split("");
+      for (let i = 0; i < numArray.length; i++) {
+        for (let f = 0; f < numAleatorioArray.length; f++) {
+          let cont = 0;
+          if (numArray[i] === numAleatorioArray[f]) {
+            cont += 1;
+            texto.append(`El numero ${numArray[i]} se repite ${cont} veces. `)
+          }else{
+            texto.innerHTML="No coincide ningún numero";
+          }
+        }
+        
+      }
+    }
+  })
+  
+
+</script>
+
+</body>
+</html>

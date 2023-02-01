@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+</head>
+
+<body>
+  <script>
+    //Set the timer function
+    function timer(time) {
+      //Inside of the function create a promise that detexts
+      var promesa = new Promise((resolve, reject) => {
+        var tmp1 = setTimeout(() => {
+          //Clear the timeout so we don't have two processes at the same time
+          clearTimeout(tmp2);
+          resolve("Tiempo completado");
+        }, parseInt(time));
+
+      var tmp2 = setTimeout(() => {
+          clearTimeout(tmp1);
+          reject("Error");
+        }, parseInt(time));
+
+      });
+      return promesa;
+    };
+    //Set the timer to 1000 ms, if the function is correct we do the resolve prmomise, if not we do the reject
+    timer(1000).then(resolve=>document.write(resolve)).catch(reject=>document.write(reject));
+  </script>
+</body>
+
+</html>

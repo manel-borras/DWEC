@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartamentos</title>
+</head>
+<body>
+  <script>
+    //Declaramos el objeto apartamentos
+    function Apartamento(puerta){
+      this.puerta = puerta;
+      //Mostramos por pantalla la puerta que ha añadido el usuario
+      this.toString = function(){
+        console.log(`La puerta es ${puerta}`);
+      }
+    }
+    //Declaramos el objeto edificio que se compone de 9 apartamentos
+    function edificio(){
+      var bloque = [];
+      var array = [];
+      var apartamentosAlquilados = [];
+        //Con este bucle creamos y añadimos los 9 apartamentos a la array bloque.
+        for (let f = 1; f <= 9; f++) {
+          var pisos = new Apartamento(f)
+          bloque.push(pisos);
+        }
+        
+
+      //Devuelve por la consola la información de bloque
+      this.toString = function(){
+        console.log(bloque);
+      };
+
+      //Creamos el metodo alquilar
+      this.alquilar = function(){
+        //genera un numero random entre 0 y la longitud del array de bloque
+        var rand = parseInt(Math.random()*bloque.length);
+        // console.log(rand);
+
+        //Al mismo tiempo que elimina el apartamento de la array bloque lo añade al array de apartamentos alquilados
+        
+        apartamentosAlquilados.push(bloque.splice(rand,1));
+        console.log("Has alquilado un edificio");
+        return rand;
+        // console.log(bloque);
+      }
+
+      this.recuperar = function(){
+        // console.log(apartamentosAlquilados);
+        //Comprobamos que la array bloque no incluya los apartamentos alquilados
+        if (bloque.includes(apartamentosAlquilados)) {
+          return;
+        } else {
+          //si la array bloque no incluye los apartamentos alquilados eliminamos el ultimpo con el .pop y lo añadimos a los bloques con un push
+          pisos = apartamentosAlquilados.pop();
+          bloque.push(pisos);
+        }
+        // console.log(apartamentosAlquilados);
+        // // console.log(bloque);
+      }
+
+    }
+
+    function Huesped(nombre, nac, mail){
+      this.nombre = nombre;
+      this.nac = nac;
+      var pack = [];
+      if(/\d\/d\/\d/.test(nac)){
+        console.log("Esta fecha es correcta")
+      }else{
+        console.log("Esta fecha es incorrecta");
+      }
+
+      let nacimiento = new Date(nac);
+      
+      console.log(nacimiento);
+      
+      if(/\S+@\S+\.\S+/.test(mail)){
+        this.mail = mail
+      }else{
+        this.mail = "Mail incorrecto";
+      } 
+
+      this.quienSoy = function(){
+        console.log(`El nombre es ${nombre}, tu fecha de nacimiento es: ${nac} y tu email es: ${this.mail}`);
+      }
+
+      this.solicitarAlquiler = function(edificio){
+        pack.push(edificio.alquilar());
+      }
+      
+      this.mostrarPack = function(){
+        console.log("Has alquilado el apartamento con numero: "+pack);
+      }
+
+      this.anularAlquiler = function(){
+        pack.splice(0,1);
+        console.log("Has eliminado el piso más antiguo")
+      }
+    }
+
+    edificio.prototype.inicializar = new function (){
+      var bloque = [];
+
+      for (let f = 1; f <= 9; f++) {
+          var pisos = new Apartamento(f)
+          bloque.push(pisos);
+        }
+    }
+
+    let apartamento1 = new Apartamento(1);
+    apartamento1.toString();
+    edificio1 = new edificio();
+    edificio1.toString();
+    edificio1.alquilar();
+    edificio1.toString();
+    edificio1.recuperar();
+    edificio1.toString();
+    let huesped1 = new Huesped("Manel", 22/05/2023, "manel@gmail.com");
+    huesped1.quienSoy();
+    huesped1.solicitarAlquiler(edificio1);
+    huesped1.solicitarAlquiler(edificio1);
+    huesped1.mostrarPack();
+    huesped1.anularAlquiler();
+    huesped1.mostrarPack();
+    edificio1.inicializar();
+    edificio1.toString();
+
+  </script>
+</body>
+</html>

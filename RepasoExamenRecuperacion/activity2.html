@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baraja de cartas</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    function carta(palo, key) {
+      this.palo = palo;
+      this.key = key;
+
+      this.mostrarCarta = function () {
+        console.log(`La carta es ${this.key} de ${this.palo}`);
+        return this;
+      }
+    }
+
+    function baraja() {
+
+      this.baraja = [];
+
+      const palos = ["Picas", "Corazones", "Diamantes", "Tréboles"];
+      const num = {
+        "As": 1, "Dos": 2, "Tres": 3, "Cuatro": 4, "Cinco": 5, "Seis": 6,
+        "Siete": 7, "Ocho": 8, "Nueve": 9, "Diez": 10, "Jack": 11, "Reina": 12, "Rey": 13
+      };
+
+      for (let i = 0; i < palos.length; i++) {
+        for (let key in num) {
+          this.baraja.push(new carta(palos[i], key));
+        }
+      }
+
+      this.barajar = function () {
+        for (let i = this.baraja.length - 1; i > 0; i--) {
+          let j = parseInt(Math.random() * (i + 1));
+          let temp = this.baraja[i];
+          this.baraja[i] = this.baraja[j];
+          this.baraja[j] = temp;
+        }
+        return this;
+      };
+
+      this.mostrarBaraja = function () {
+        let mostrar = [];
+        for (let i = 0; i < this.baraja.length; i++) {
+          mostrar.push(this.baraja[i]);
+        }
+        return mostrar;
+      };
+
+      this.repartirCartas = function () {
+        var Carta = this.baraja.pop();
+        console.log(`Carta repartida. La baraja se ha quedado con ${this.baraja.length} cartas`);
+        return Carta;
+      };
+      return this;
+    }
+
+    function jugador(nombre, edad, mail) {
+      this.nombre = nombre;
+      if (edad <= 18) {
+        return null;
+      }
+
+      if (/\S+@\S+\.\S+/.test(mail)) this.correo = mail;
+
+      this.hand = [];
+
+      this.quienSoy = function () {
+        console.log(`Tu nombre es ${this.nombre}`);
+        return this;
+      }
+
+      this.draw = function (baraja) {
+        this.hand.push(baraja.repartirCartas().mostrarCarta())
+        return this;
+      }
+
+      this.desCartar = function () {
+        var disCartedCarta = this.hand.pop();
+        console.log(`${this.nombre} ha descartado: ${disCartedCarta.key} de ${disCartedCarta.palo}`)
+        return this;
+      }
+    };
+
+    // baraja.protoype.resetbaraja = function () {
+    //   this.baraja = [];
+    //   const palos = ["Hearts", "Diamonds", "Spades", "Clubs"];
+    //   const nums = {
+    //     "Ace": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6,
+    //     "Seven": 7, "Eight": 8, "Nine": 9, "Ten": 10, "Jack": 11, "Queen": 12, "King": 13
+    //   };
+    //   for (let i = 0; i < palos.length; i++) {
+    //     for (let key in nums) {
+    //       this.baraja.push(new Carta(palos[i], key, nums[key]));
+    //     }
+    //   }
+    //   this.barajar();
+    //   console.log("Baraja reseteada.")
+    //   return this;
+    // }
+
+
+
+    let baraja1 = new baraja();
+    console.log(baraja1.mostrarBaraja());
+
+    baraja1.barajar().repartirCartas().mostrarCarta();
+
+    let jugador1 = new jugador("Manel", 20, "manel@mgail.com");
+
+    jugador1.quienSoy();
+
+    jugador1.draw(baraja1);
+    jugador1.draw(baraja1);
+    jugador1.desCartar();
+    
+    baraja1.mostrarBaraja();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // programa JavaScript implementación validación sudoku
+    // Enfoque: El problema se puede resolver verificando las siguientes condiciones: 
+    // Comprueba si cada fila de la matriz tablero[][] almacena solo valores únicos del rango [ 1 , 9 ] o no. 
+    // Comprueba si cada columna de la matriz tablero[][] almacena valores únicos del rango [ 1 , 9 ] o no. 
+    // Comprueba si todas las submatrices 3 × 3 posibles de la matriz tablero[][] almacenan valores únicos del rango [ 1 , 9 ] o no. 
+
+    // Siga los pasos a continuación para resolver el problema:  
+    // Compruebe si las condiciones anteriores se cumplen o no. 
+    // Si alguna de las condiciones anteriores no se cumple, imprima " No válido ". 
+    // De lo contrario, imprima “ Válido ”
+
+    var N = 9;
+    // Función que comprueba si todos los elementos del tablero están dentro del rango [1-9]
+    function isinRange(board) {
+        // Recorremos el array board[][]
+        for (var fila = 0; fila < N; fila++) {
+            for (var columna = 0; columna < N; columna++) {
+                if (board[fila][columna] <= 0 ||
+                    board[fila][columna] > 9) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    // función Comprobar si hay duplicados en un array simple 
+    // TODO OPCIONAL
+
+    // Función que comprueba si la solución del sudoku es válida
+    function isValidSudoku(board) {
+        // Primero comprobamos si el contenido del tablero son números válidos
+        if (isinRange(board) == false) {
+            return false;
+        }
+        // Comprobamos que cada fila tenga los valores del 1 al 9 sin repetir ningún valor
+        for (let fila = 0; fila < 9; fila++) {
+            for (let posicion = 0; posicion < 9; posicion++) {
+                // El numComprobar es el numero que se ha encuentra en una posición exacta, por ejemplo fila 1 columna 3, cambia cada vez que se repite el primer for
+                let numComprobar = board[fila][posicion];
+                let contador = 0;
+                //El for va comprobando que el numComprobar solo se repita 1 vez en toda la fila
+                for (let i = 0; i < 9; i++) {
+                    if (numComprobar == board[fila][i]) {
+                        contador += 1;
+                    }
+                }
+            //Si el contador de veces que se repite el numero en la misma fila es mayor que 1 retorna falso
+            if(contador > 1){
+                // console.log(`En la fila ${fila} y la posición ${posicion} el numero ${numComprobar} se repite mas de 1 vez`)
+                return false;
+            } else if (contador === 1) {
+                // console.log(`En la fila ${fila} y la posición ${posicion} está todo correcto`)
+            }
+            }
+        }
+
+        // Comprobamos que cada columna tenga los valores del 1 al 9 sin repetir ningún valor
+        //Para comprobar las columnas se utiliza el mismo método de las filas pero cambiando el orden de los elementos que buscamos en el array.
+        for (let columna = 0; columna < 9; columna++) {
+            for (let posicion = 0; posicion < 9; posicion++) {
+                let numComprobar = board[posicion][columna];
+                let contador = 0;
+                // console.log(numComprobar);
+                for (let i = 0; i < 9; i++) {
+                    if (numComprobar == board[columna][i]) {
+                        contador += 1;
+                    }
+                }
+            if(contador > 1){
+                // console.log(`En la columna ${columna} y la posición ${posicion} el numero ${numComprobar} se repite mas de 1 vez`)
+                return false;
+            } else if (contador === 1) {
+                // console.log(`En la columna ${columna} y la posición ${posicion} está todo correcto`)
+            }
+            }
+        }
+
+        // Comprobamos que cada bloque de 3 * 3 en el tablero tenga los valores del 1 al 9 sin repetir ningún valor
+
+        for (let fila = 0; fila < 9; fila++) {
+            for (let posicion = 0; posicion < 9; posicion++) {
+                let numComprobar = board[fila][posicion];
+                let contador = 0;
+                for (let i = 0; i < 9; i++) {
+                    if (numComprobar == board[fila][i]) {
+                        contador += 1;
+                    }
+                }
+            if(contador > 1){
+                // console.log(`En la fila ${fila} y la posición ${posicion} el numero ${numComprobar} se repite mas de 1 vez`)
+                return false;
+            } else if (contador === 1) {
+                // console.log(`En la fila ${fila} y la posición ${posicion} está todo correcto`)
+            }
+            }
+        }
+
+        // Si todas las condiciones se cumplen satisfactoriamente devuelvo true.
+        return true;
+    }
+
+    // Sudoku ejemplo valido. Cambiando cualquier número deja de ser válido
+    var board = [
+        [7, 9, 2, 1, 5, 4, 3, 8, 6], // fila 0
+        [6, 4, 3, 8, 2, 7, 1, 5, 9], // fila 1
+        [8, 5, 1, 3, 9, 6, 7, 2, 4], // fila 2 ...
+        [2, 6, 5, 9, 7, 3, 8, 4, 1],
+        [4, 8, 9, 5, 6, 1, 2, 7, 3],
+        [3, 1, 7, 4, 8, 2, 9, 6, 5],
+        [1, 3, 6, 7, 4, 8, 5, 9, 2],
+        [9, 7, 4, 2, 1, 5, 6, 3, 8],
+        [5, 2, 8, 6, 3, 9, 4, 1, 7]
+    ];
+
+        // Llamada a la función isValidSudoku y devolución de sudoku "Válido" o "no Válido"
+        // Si la funcion isvalidsudoku devuelve true nos dice que está todo correcto, si devuelve false nos dice que el sudoku no cumple las normas
+        if (isValidSudoku(board) === true) {
+            document.write("El sudoku está hecho correctamente");
+        } else if (isValidSudoku(board) === false){
+            document.write("El sudoku no ha cumplido las normas");
+        }
+        // ---
+    
+</script>
+</html>

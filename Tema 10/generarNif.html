@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NIF aleatorio</title>
+</head>
+
+<body>
+  <p id="nif"></p>
+  <script>
+    var capaNIF = document.getElementById("nif");
+    fetch("https://api.generadordni.es/v2/profiles/person")
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        else {
+          throw new Error("Los datos no llegaron bien");
+        }
+      })
+      .then(listaNIFs => {
+        capaNIF.textContent = listaNIFs[0];
+      })
+      .catch(error => {
+        capaNIF.textContent = "Error: " + error;
+      });
+  </script>
+</body>
+
+</html>
